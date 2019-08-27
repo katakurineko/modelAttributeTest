@@ -1,7 +1,6 @@
 package com.mediaseek.training.Controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import com.mediaseek.training.Entity.Hello;
@@ -17,6 +16,7 @@ public class TestController {
 
   @GetMapping("/")
   public String get(@ModelAttribute("hello") Hello h) {
+    h.setPageName("test1");
     h.setHello("hello!");
     return "test";
   }
