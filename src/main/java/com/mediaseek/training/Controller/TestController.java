@@ -9,6 +9,12 @@ import com.mediaseek.training.Entity.Hello;
 @Controller
 public class TestController {
 
+  
+  /**
+   * https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-ann-requestmapping-uri-templates<br/>
+   * を参考にURLからパラメータを受け取る。<br/>
+   * また、正規表現で受け取るパラメータに制限をかける。
+   */
   @GetMapping("/{message:^[a-z0-9]+$}")
   public String get(@ModelAttribute("hello") Hello h,@PathVariable String message) {
     h.setPageName("test1");
