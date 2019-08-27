@@ -8,20 +8,22 @@ import com.mediaseek.training.Entity.Hello;
 
 @Controller
 public class TestController {
-  @ModelAttribute
-  public Hello getMenu() {
-    Hello h = new Hello();
-    h.setHello("hello!");
-    return h;
-  }
+//  @ModelAttribute
+//  public Hello getMenu() {
+//    Hello h = new Hello();
+//    h.setHello("hello!");
+//    return h;
+//  }
 
   @GetMapping("/")
-  public String get() {
+  public String get(@ModelAttribute("hello") Hello h) {
+    h.setHello("hello!");
     return "test";
   }
   
   @GetMapping("/2")
-  public String get2() {
+  public String get2(@ModelAttribute("hello") Hello h) {
+    h.setHello("hellohello!");
     return "test2";
   }
 
